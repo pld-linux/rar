@@ -19,9 +19,9 @@ files. The archive is usually a regular file, which name has a ".rar"
 suffix.
 
 %description -l pl
-RAR jest potê¿nym narzêdziem pozwalaj±cym na zarz±dzanie i kontrolowanie 
-archiwów. Archiwum jest to zwykle zwyk³y plik, z sufiksem ".rar"
-w nazwie.
+RAR jest potê¿nym narzêdziem pozwalaj±cym na zarz±dzanie i
+kontrolowanie archiwów. Archiwum jest to zazwyczaj zwyk³y plik,
+którego nazwa ma rozszerzenie ".rar".
 
 %prep
 %setup -q -n rar
@@ -42,5 +42,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.{txt,diz}
 %{_mandir}/man1/*
-%attr(755, root, root) %{_bindir}/rar
+%attr(755,root,root) %{_bindir}/rar
 %{_libdir}/rar
