@@ -1,4 +1,4 @@
-.TH RAR 1 24.3.1999 "" "RAR archiver"
+.TH RAR 1 22.04.2002 "" "RAR archiver"
 .SH NAME
 rar \- archive files with compression
 .SH SYNOPSIS
@@ -14,7 +14,7 @@ because the original program does not have a manual page.
 .br
 Commands and options described here are as of
 .BR rar
-2.50.
+3.0b5.
 .PP
 .B rar
 and
@@ -72,14 +72,25 @@ Print file to stdout.
 .TP
 .B r
 Repair archive. For further details look in
-.BR Rar.Txt .
+.BR rar.txt .
+.TP
+.B rc
+Reconstruct missing volumes using recovery volumes (.rev files).
+You need to specify any existing volume as the archive name, for
+example, 'rar rc backup.part03.rar'.
 .TP
 .B rr[N]
 Add data recovery record. Optionally, redundant information
 (recovery record) may be added to an archive.
 .TP
-.B s[file]
-Convert archive to SFX. The archive is merged with SFX-module
+.B rv[N]
+Create recovery volumes (.rev files), which can be later used to reconstruct
+missing files in a volume set.  This command has sense only for multivolume archives.
+For further details look in
+.BR rar.txt .
+.TP
+.B s[name|-]
+Convert archive to or from SFX. The archive is merged with SFX-module
 in the user's home directory.
 .TP
 .B t
@@ -96,7 +107,7 @@ Verbosely list archive [technical]
 Extract files with full path.
 .SH SWITCHES
 .BR NOTE:
-Every switch must be separated by a whitespace. You cannot put them
+Every switch must be separated by a whitespace. They cannot be put
 together.
 .TP
 .B -?
@@ -113,6 +124,13 @@ such name would be treated as switch.
 Clear Archive attribute after compression or extraction
 (Windows version only).
 .TP
+.B -ag[format]
+Generate archive name using the current date and time.
+Appends the current date string to an archive name when
+creating an archive. Useful for daily backups.
+For further details look in
+.BR rar.txt .
+.TP
 .B -ao
 Add files with Archive attribute set
 (Windows version only).
@@ -120,6 +138,13 @@ Add files with Archive attribute set
 .B -ap
 Set path inside archive. This path is merged to file names when adding files
 to an archive and removed from file names when extracting.
+.TP
+.B -as
+Synchronize archive contents. If this switch is used when archiving, those archived files
+which are not present in the list of the currently added
+files, will be deleted from archive. It is convenient to use
+this switch in combination with -u (update) to synchronize
+contents of an archive and an archiving directory.
 .TP
 .B -av
 Put authenticity verification (registered versions only). Details in
@@ -140,14 +165,29 @@ Convert file names to upper case.
 .B -c-
 Disable comments show.
 .TP
+.B -df
+Delete files after archiving. This switch in combination with
+the command "A" performs the same action as the command "M".
+.TP
 .B -dh
 Open shared files. Allows to process files opened by other applications
 for writing.
+.TP
 .B -ds
 Do not sort files while adding to a solid archive.
 .TP
 .B -ed
 Do not add empty directories.
+.TP
+.B -ee
+Do not process extended attributes. Only for OS/2 versions.
+.TP
+.B -en
+Do not add "end of archive" block.
+
+This switch cannot be used with volumes, because the end
+of archive block contains information important for correct
+volume processing.
 .TP
 .B -ep
 Exclude paths from names.
@@ -155,11 +195,26 @@ Exclude paths from names.
 .B -ep1
 Exclude base dir from names.
 .TP
+.B -ep2
+Expand paths to full. Store full file paths (except a drive
+letter and leading path separator) when archiving.
+.TP
 .B -e<attr>
 Specifies file exclude attributes mask.
 .TP
 .B -f
 Freshen files. May be used with archive extraction or creation.
+.TP
+.B -hp<password>
+Encrypt both file data and headers.
+The password is case-sensitive. If you omit the password on the
+command line, you will be prompted with message "Enter password".
+.TP
+.B -idp
+Disable percentage indicator.
+.TP
+.B -ieml[.][addr]
+Send archive by email. Win32 version only.
 .TP
 .B -ierr
 Send all messages to stderr.
@@ -173,25 +228,28 @@ Disable all messages.
 .B -isnd
 Enable sound.
 .TP
+.B -k
+Lock archive. Any command which intends to change the archive
+will be ignored.
+.TP
 .B -kb
 Keep broken extracted files.
 .TP
 .B -m<0..5>
-Set compression level (0-store...3-default...5-maximal). By default
+Set compression level (0-store...3-default...5-best). By default
 .BR rar
 uses -m3 method (Normal compression).
 .TP
+.B -mc<par>
+Set advanced compression parameters.
+For further details look in
+.BR rar.txt .
+.TP
 .B -md<size>
-Set dictionary size in Kb (64,128,256,512,1024 or A,B,C,D,E)
+Set dictionary size in Kb (64,128,256,512,1024,2048,4097 or a,b,c,d,e,f,g)
 .TP
-.B -mm[f]
-Multimedia compression [force]. Enables a special multimedia
-compression algorithm. It is intended to compress digital audio
-data containing up to four 8-bit or two 16-bit channels. It
-works well with  true color (24-bit) bitmaps as well.
-Improvement in the compression ratio up to 30% over the normal
-compression may be achieved.
-.TP
+.B -ms[list]
+Specify file types to store.
 .B -o+
 Overwrite existing files.
 .TP
@@ -201,11 +259,14 @@ Do not overwrite existing files.
 .B -ol
 Save symbolic links as the link instead of the file.
 .TP
+.B -os
+Save NTFS streams. Win32 version only.
+.TP
 .B -ow
 Save file owner and group.
 .TP
 .B -p<password>
-Encrypt files with the string <p> as password while archiving.
+Encrypt files with the string <password> as password while archiving.
 The password is case-sensitive. If you omit the password on the
 command line, you will be prompted with message "Enter password".
 .TP
@@ -225,6 +286,8 @@ Set priority and sleep time. Available only in RAR for Windows.
 .B -rr[N]
 Add data recovery record.
 .TP
+.B -rv[N]
+Create recovery volumes.
 .B -s
 Create solid archive.
 .TP
@@ -240,12 +303,21 @@ statistics if file extension is changed.
 Create independent solid volumes. Similar to -s, but reset solid statistics
 as soon as possible when starting a new volume.
 .TP
+.B -sv-
+Create dependent solid volumes. Similar to -s, but reset of solid statistics
+is disabled.
+.TP
 .B -s-
 Disable solid archiving.
 .TP
 .B -sfx[name]
 Create SFX archives. The archive is merged with
 SFX-module in the user's home directory.
+.TP
+.B -t
+Test files after archiving. This switch is especially
+useful in combination with the move command, so files will be
+deleted only if archive had been successfully tested.
 .TP
 .B -tk
 Keep original archive time. Prevents
@@ -288,8 +360,8 @@ Assume Yes on all queries.
 Read archive comment from file.
 .SH "SEE ALSO"
 The program is documented fully in
-.IR Rar.Txt
-which you find in /usr/doc/rar.
+.IR rar.txt
+which you find in /usr/share/doc/rar.
 .SH AUTHOR
 This manual page was written by Petr Cech <cech@debian.org> according
 to "rar -h" for the Debian GNU/Linux system (but may be used by others).
