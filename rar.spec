@@ -5,8 +5,6 @@ Version:	2.90
 Release:	2
 License:	Shareware
 Group:		Applications/Archiving
-Group(de):	Applikationen/Archivierung
-Group(pl):	Aplikacje/Archiwizacja
 Source0:	http://209.235.4.116/rar/%{name}lnx29.sfx
 Source1:	%{name}.1
 URL:		http://www.rarsoft.com/
