@@ -31,7 +31,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar}
 
 install rar/*.sfx $RPM_BUILD_ROOT%{_libdir}/rar/
 install rar/*.lst $RPM_BUILD_ROOT%{_libdir}/rar/
-install -s -m 755 rar/rar $RPM_BUILD_ROOT%{_bindir}/rar
+install -m 755 rar/rar $RPM_BUILD_ROOT%{_bindir}/rar
 
 gzip -9nf rar/*.{txt,frm,diz}
 
