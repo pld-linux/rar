@@ -2,7 +2,7 @@ Summary:	The RAR Archiver
 Summary(pl):	Archiwizator RAR
 Name:		rar
 Version:	3.0
-Release:	1
+Release:	2
 License:	Shareware
 Group:		Applications/Archiving
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
@@ -24,7 +24,6 @@ kontrolowanie archiwów.
 
 %prep
 %setup -q -n rar
-install -m755 %{SOURCE0} .
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -33,7 +32,6 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar,%{_mandir}/man1}
 install *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
 install *.lst $RPM_BUILD_ROOT%{_libdir}/rar
 install rar $RPM_BUILD_ROOT%{_bindir}/rar
-install unrar $RPM_BUILD_ROOT%{_bindir}/unrar
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
@@ -43,5 +41,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.{txt,diz}
 %{_mandir}/man1/*
-%attr(755, root, root) %{_bindir}/*rar
+%attr(755, root, root) %{_bindir}/rar
 %{_libdir}/rar
