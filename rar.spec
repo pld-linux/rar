@@ -2,13 +2,14 @@ Summary:	The RAR Archiver
 Summary(pl):	Archiwizator RAR
 Name:		rar
 Version:	2.90
-Release:	1
+Release:	2
 License:	Shareware
 Group:		Applications/Archiving
 Group(de):	Applikationen/Archivierung
 Group(pl):	Aplikacje/Archiwizacja
 URL:		http://www.rarsoft.com/
 Source0:	http://209.235.4.116/rar/%{name}lnx29.sfx
+Soutce1:	%{name}.1
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -33,6 +34,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar}
 install rar/*.sfx $RPM_BUILD_ROOT%{_libdir}/rar/
 install rar/*.lst $RPM_BUILD_ROOT%{_libdir}/rar/
 install rar/rar $RPM_BUILD_ROOT%{_bindir}/rar
+install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1
 
 gzip -9nf rar/*.{txt,diz}
 
@@ -42,5 +44,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc rar/*.{txt,diz}.gz
+%{_mandir}/man1/*
 %attr(755, root, root) %{_bindir}/rar
 %{_libdir}/rar
