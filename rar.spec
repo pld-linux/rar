@@ -3,9 +3,10 @@ Summary(pl):	Archiwizator RAR
 Name:		rar
 Version:	2.90
 Release:	1
-Copyright:	Shareware
-Group:		Utilities/Archiving
-Group(pl):	Narzêdzia/Archiwizacja
+License:	Shareware
+Group:		Applications/Archiving
+Group(de):	Applikationen/Archivierung
+Group(pl):	Aplikacje/Archiwizacja
 URL:		http://www.rarsoft.com/
 Source0:	http://209.235.4.116/rar/%{name}lnx29.sfx
 ExclusiveArch:	%{ix86}
@@ -17,8 +18,8 @@ files. The archive is usually a regular file, which name has a ".rar"
 suffix.
 
 %description -l pl
-RAR jest efektywnym narzêdziem pozwalaj±cym na zarz±dzanie i kontrolowanie
-archiwów.
+RAR jest efektywnym narzêdziem pozwalaj±cym na zarz±dzanie i
+kontrolowanie archiwów.
 
 %prep
 %setup -q -T -c
@@ -31,7 +32,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar}
 
 install rar/*.sfx $RPM_BUILD_ROOT%{_libdir}/rar/
 install rar/*.lst $RPM_BUILD_ROOT%{_libdir}/rar/
-install -m 755 rar/rar $RPM_BUILD_ROOT%{_bindir}/rar
+install rar/rar $RPM_BUILD_ROOT%{_bindir}/rar
 
 gzip -9nf rar/*.{txt,diz}
 
