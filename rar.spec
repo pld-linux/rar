@@ -1,12 +1,13 @@
 Summary:	The RAR Archiver
+Summary(pl):	Archiwizator RAR
 Name:		rar
-Version:	2.71
+Version:	2.80
 Release:	1
 Copyright:	Shareware
 Group:		Utilities/Archiving
 Group(pl):	Narzêdzia/Archiwizacja
 URL:		http://www.rarsoft.com/
-Source0:	ftp://ftp.netlab.sk/public/rarsoft/rar/%{name}lnx271.sfx
+Source0:	http://209.235.4.116/rar/%{name}lnx28b3.sfx
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -14,6 +15,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 RAR is a powerful tool which allows you to manage and control archive
 files. The archive is usually a regular file, which name has a ".rar"
 suffix.
+
+%description -l pl
+RAR jest efektywnym narzêdziem pozwalaj±cym na zarz±dzanie i kontrolowanie
+archiwów.
 
 %prep
 %setup -q -T -c
