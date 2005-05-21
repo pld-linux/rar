@@ -5,7 +5,7 @@ Summary:	The RAR Archiver
 Summary(pl):	Archiwizator RAR
 Name:		rar
 Version:	3.5.0
-Release:	0.%{_pre}.1
+Release:	0.%{_pre}.2
 License:	Shareware
 Group:		Applications/Archiving
 #Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
@@ -13,7 +13,7 @@ Source0:	http://www.rarlab.com/rar/%{name}linux-%{_ver}.%{_pre}.tar.gz
 # Source0-md5:	1bbe36aa3d5187682f30d7ccf779256e
 Source1:	%{name}.1
 URL:		http://www.rarlab.com/
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define no_install_post_strip 1
@@ -37,7 +37,11 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar,%{_mandir}/man1}
 
 install *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
 install *.lst $RPM_BUILD_ROOT%{_libdir}/rar
+%ifarch %{x8664}
+install rar_static $RPM_BUILD_ROOT%{_bindir}/rar
+%else
 install rar $RPM_BUILD_ROOT%{_bindir}/rar
+%endif
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
