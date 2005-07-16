@@ -1,5 +1,5 @@
 %define		_ver	3.5
-%define		_pre	b1
+%define		_pre	b5
 #
 Summary:	The RAR Archiver
 Summary(pl):	Archiwizator RAR
@@ -10,7 +10,7 @@ License:	Shareware
 Group:		Applications/Archiving
 #Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{_ver}.%{_pre}.tar.gz
-# Source0-md5:	1bbe36aa3d5187682f30d7ccf779256e
+# Source0-md5:	446cf00570df1eb17d161b614176dff9
 Source1:	%{name}.1
 URL:		http://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
