@@ -1,16 +1,15 @@
-%define		_ver	3.5
-%define		_pre	b5
+%define		_ver	3.5.0
 #
 Summary:	The RAR Archiver
 Summary(pl):	Archiwizator RAR
 Name:		rar
 Version:	3.5.0
-Release:	0.%{_pre}.1
+Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 #Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
-Source0:	http://www.rarlab.com/rar/%{name}linux-%{_ver}.%{_pre}.tar.gz
-# Source0-md5:	446cf00570df1eb17d161b614176dff9
+Source0:	http://www.rarlab.com/rar/%{name}linux-%{_ver}.tar.gz
+# Source0-md5:	adbe1ba58422ec7f16397485b3ee0a65
 Source1:	%{name}.1
 URL:		http://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
