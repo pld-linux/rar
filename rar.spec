@@ -9,7 +9,7 @@ Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
 # Source0-md5:	50c530f0896cff4f922bb480ccb1aa18
 Source1:	%{name}.1
 URL:		http://www.rarlab.com/
-ExclusiveArch:	%{ix86} %{x8664}
+ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define no_install_post_strip 1
