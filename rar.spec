@@ -33,7 +33,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar,%{_mandir}/man1}
 
 install *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
 install *.lst $RPM_BUILD_ROOT%{_libdir}/rar
-install rar_static $RPM_BUILD_ROOT%{_bindir}/rar
+install rar $RPM_BUILD_ROOT%{_bindir}/rar
 install %{SOURCE1} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
