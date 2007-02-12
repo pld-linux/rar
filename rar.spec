@@ -1,5 +1,5 @@
 Summary:	The RAR Archiver
-Summary(pl.UTF-8):   Archiwizator RAR
+Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
 Version:	3.6.0
 Release:	2
