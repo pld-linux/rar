@@ -1,5 +1,5 @@
 Summary:	The RAR Archiver
-Summary(pl):	Archiwizator RAR
+Summary(pl.UTF-8):   Archiwizator RAR
 Name:		rar
 Version:	3.6.0
 Release:	2
@@ -19,10 +19,10 @@ RAR is a powerful tool which allows you to manage and control archive
 files. The archive is usually a regular file, which name has a ".rar"
 suffix.
 
-%description -l pl
-RAR jest potê¿nym narzêdziem pozwalaj±cym na zarz±dzanie i
-kontrolowanie archiwów. Archiwum jest to zazwyczaj zwyk³y plik,
-którego nazwa ma rozszerzenie ".rar".
+%description -l pl.UTF-8
+RAR jest potÄ™Å¼nym narzÄ™dziem pozwalajÄ…cym na zarzÄ…dzanie i
+kontrolowanie archiwÃ³w. Archiwum jest to zazwyczaj zwykÅ‚y plik,
+ktÃ³rego nazwa ma rozszerzenie ".rar".
 
 %prep
 %setup -q -n rar
