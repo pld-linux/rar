@@ -12,8 +12,6 @@ URL:		http://www.rarlab.com/
 ExclusiveArch:	%{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		no_install_post_strip	1
-
 %description
 RAR is a powerful tool which allows you to manage and control archive
 files. The archive is usually a regular file, which name has a ".rar"
