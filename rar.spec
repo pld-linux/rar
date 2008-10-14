@@ -1,15 +1,16 @@
 Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
-Version:	3.7.1
+Version:	3.8.0
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
-# Source0-md5:	b52249002e279a3e97afc25b5758ec7c
-Source1:	%{name}.1
+# Source0-md5:	3e7b5d82884f057bb6802d094f1c95ee
+SOurce1:	http://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
+Source2:	%{name}.1
 URL:		http://www.rarlab.com/
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -23,7 +24,12 @@ kontrolowanie archiwów. Archiwum jest to zazwyczaj zwykły plik,
 którego nazwa ma rozszerzenie ".rar".
 
 %prep
-%setup -q -n rar
+%ifarch %{ix86}
+%setup -q -T -b 0 -n rar
+%endif
+%ifarch %{x8664}
+%setup -q -T -b 1 -n rar
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
