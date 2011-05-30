@@ -1,14 +1,14 @@
 Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
-Version:	4.0.0
+Version:	4.0.1
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
-# Source0-md5:	0065929075c449600e2354b95501af03
+# Source0-md5:	7c6bb547dadd14ef606dd2b4071d28f3
 Source1:	http://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
-# Source1-md5:	4f697fa6dc73f5e8400896c14ab81d75
+# Source1-md5:	09ed30c0935ffb01177269a50628b4eb
 Source2:	%{name}.1
 URL:		http://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
