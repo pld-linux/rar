@@ -1,14 +1,14 @@
 Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
-Version:	5.0.0
+Version:	5.0.1
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
-# Source0-md5:	cc80d05d868e7a07f79ad4d4f0fab265
+# Source0-md5:	14437c88255215cb317cb6b04b663f57
 Source1:	http://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
-# Source1-md5:	7203cd3f3f01acd3b62d8d377de59f2e
+# Source1-md5:	a8dc6fd70578809ff820d6f40d697452
 Source2:	%{name}.1
 URL:		http://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
