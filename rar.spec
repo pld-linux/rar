@@ -5,8 +5,10 @@ Version:	5.1.0
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
+#Source0Download: http://www.rarlab.com/download.htm
 Source0:	http://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
 # Source0-md5:	9d89220dc03375273aa841f0be837e5f
+#Source1Download: http://www.rarlab.com/download.htm
 Source1:	http://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
 # Source1-md5:	6dd48f8868cadb633a67c6e8ecbb293a
 Source2:	%{name}.1
