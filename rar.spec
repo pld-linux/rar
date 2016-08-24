@@ -2,7 +2,7 @@ Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
 Version:	5.4.0
-Release:	1
+Release:	2
 License:	Shareware
 Group:		Applications/Archiving
 #Source0Download: http://www.rarlab.com/download.htm
@@ -13,6 +13,7 @@ Source1:	http://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
 # Source1-md5:	f7181c0aed3b7be402b95185bd61e646
 Source2:	%{name}.1
 URL:		http://www.rarlab.com/
+Obsoletes:	unrar
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,6 +42,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar,%{_mandir}/man1}
 install *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
 install *.lst $RPM_BUILD_ROOT%{_libdir}/rar
 install rar $RPM_BUILD_ROOT%{_bindir}/rar
+install unrar $RPM_BUILD_ROOT%{_bindir}/unrar
 install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
@@ -50,5 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *.txt
 %attr(755,root,root) %{_bindir}/rar
+%attr(755,root,root) %{_bindir}/unrar
 %{_libdir}/rar
 %{_mandir}/man1/rar.1*
