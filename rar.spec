@@ -1,20 +1,22 @@
 Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
-Version:	5.6.1
+Version:	7.0.0
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 #Source0Download: http://www.rarlab.com/download.htm
-Source0:	https://www.rarlab.com/rar/%{name}linux-%{version}.tar.gz
-# Source0-md5:	1feeeabd2a6b5f9ad2deb1185a680afb
+Source0:	https://www.rarlab.com/rar/%{name}linux-x32-700.tar.gz
+# Source0-md5:	205fab5cfd266e9e7354d2d153f6fecc
 #Source1Download: http://www.rarlab.com/download.htm
-Source1:	https://www.rarlab.com/rar/%{name}linux-x64-%{version}.tar.gz
-# Source1-md5:	15e81fad99e9588eb133af60c659a2b3
+Source1:	https://www.rarlab.com/rar/%{name}linux-x64-700.tar.gz
+# Source1-md5:	b78bf9b036ca99fe1c9249fc6a4e83e7
 Source2:	%{name}.1
 URL:		https://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define	_enable_debug_packages	0
 
 %description
 RAR is a powerful tool which allows you to manage and control archive
@@ -38,10 +40,10 @@ którego nazwa ma rozszerzenie ".rar".
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}/rar,%{_mandir}/man1}
 
-install *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
-install *.lst $RPM_BUILD_ROOT%{_libdir}/rar
-install rar $RPM_BUILD_ROOT%{_bindir}/rar
-install %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
+cp -p *.sfx $RPM_BUILD_ROOT%{_libdir}/rar
+cp -p *.lst $RPM_BUILD_ROOT%{_libdir}/rar
+cp -p rar $RPM_BUILD_ROOT%{_bindir}/rar
+cp -p %{SOURCE2} $RPM_BUILD_ROOT%{_mandir}/man1
 
 %clean
 rm -rf $RPM_BUILD_ROOT
