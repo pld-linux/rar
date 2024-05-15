@@ -1,16 +1,16 @@
 Summary:	The RAR Archiver
 Summary(pl.UTF-8):	Archiwizator RAR
 Name:		rar
-Version:	7.0.0
+Version:	7.0.1
 Release:	1
 License:	Shareware
 Group:		Applications/Archiving
 #Source0Download: http://www.rarlab.com/download.htm
-Source0:	https://www.rarlab.com/rar/%{name}linux-x32-700.tar.gz
-# Source0-md5:	205fab5cfd266e9e7354d2d153f6fecc
+Source0:	https://www.rarlab.com/rar/%{name}linux-x32-701.tar.gz
+# Source0-md5:	32a23f09c7fb6bc2277fbcaf3596e57b
 #Source1Download: http://www.rarlab.com/download.htm
-Source1:	https://www.rarlab.com/rar/%{name}linux-x64-700.tar.gz
-# Source1-md5:	b78bf9b036ca99fe1c9249fc6a4e83e7
+Source1:	https://www.rarlab.com/rar/%{name}linux-x64-701.tar.gz
+# Source1-md5:	19bf70e6106281f4e0c02a927f5ec47b
 Source2:	%{name}.1
 URL:		https://www.rarlab.com/
 ExclusiveArch:	%{ix86} %{x8664}
